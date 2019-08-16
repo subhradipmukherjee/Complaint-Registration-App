@@ -1,0 +1,39 @@
+<!--
+  Generated template for the StatusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>status</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="overflow-y: scroll;">
+ <!-- <table>
+    <tr *ngFor="let cmp of service.comp_list">
+      <td>{{cmp.date}}</td>
+      <td> </td>
+      <td>{{cmp.dept}}</td>
+      <td> </td>
+      <td>{{cmp.problem}}</td>
+      <td> </td>
+      <td>{{cmp.status}} </td>
+      <td> </td>
+      <td>{{cmp.contact}}</td>
+      </tr>
+  </table>-->
+  <ion-card-content *ngFor="let cmp of service.comp_list">
+    <ion-card padding style="border-radius:7%;background-color:rgba(0,0,255,0.5); height:170x;width:90%;">
+      <h2 style="color:black;">Complaint Date: {{cmp.date}}</h2>
+      <h2 style="color:black;">Department: {{cmp.dept}}</h2>
+      <h2 style="color:black;">Issue: {{cmp.problem}}</h2>
+      <h2 style="color:black;">Status: {{cmp.status}}</h2>
+      <h2 style="color:black;">Contact: {{cmp.contact}}</h2>
+    </ion-card>
+  </ion-card-content>
+</ion-content>

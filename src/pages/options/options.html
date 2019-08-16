@@ -1,0 +1,62 @@
+<!--
+  Generated template for the MainPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+ <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>DashBoard</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <div text-center style="margin-top:15%;background-color:rgba(0,0,255,0.6);height:25%;width:100%;border-radius:4%;" >
+    <ion-icon name="person" style="font-size:3.2em;margin-top:7%"></ion-icon>
+    <h4  style="font-size:1.4em;font-family:Cambria Math;">Welcome Mr .{{y.name}}</h4>
+  </div>
+  <ion-grid style="margin-top: 19%;">
+    <ion-row style="width:103%;align-items: center; margin-left: 0%;">
+      <ion-col col-6>
+      <ion-card (click)="homepage()" text-center padding color="card" style="border-radius: 2%;height:90px;font-size:1.4em;color:black;text-align: center;" >
+       <div style="background-color: transparent;height:.8em;"></div>
+      <ion-icon name="home"></ion-icon>
+        Home
+
+      </ion-card>
+      </ion-col>
+      <ion-col col-6>
+          <ion-card  (click)="issuepage()" text-center padding color="card" style="border-radius: 2%;height:90px;font-size:1.4em;color:black;">
+              <div style="background-color: transparent;height:.8em;"></div>
+              <ion-icon name="create" ></ion-icon>
+               Issue
+
+           </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row style="width:103%;align-items: center;margin-left: 0%;">
+        <ion-col col-6>
+        <ion-card (click)="updatepage()" text-center padding color="card" style="border-radius: 2%;height:90px;font-size:1.4em;color:black;">
+        <div style="background-color: transparent;height:.8em;"></div>
+        <ion-icon  name="checkmark-circle"></ion-icon>
+         Update
+
+        </ion-card>
+        </ion-col>
+        <ion-col col-6>
+            <ion-card (click)="statuspage()" text-center padding color="card" style="border-radius: 2%;height:90px;font-size:1.4em;color: black;">
+             <!-- <button ion-button (click)="statuspage()" style="background-color: transparent;color: black;border-radius: 1%;">-->
+                <div style="background-color: transparent;height:.8em;"></div>
+              <ion-icon name="create"></ion-icon>
+                Status
+              <!--</button>-->
+            </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+
+</ion-content>

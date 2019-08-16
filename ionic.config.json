@@ -1,0 +1,7 @@
+{
+  "name": "complaint_reg",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

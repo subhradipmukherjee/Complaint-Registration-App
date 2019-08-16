@@ -1,0 +1,55 @@
+<!--
+  Generated template for the IssuePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content class="bg" >
+    <ion-buttons end>
+        <button ion-button icon-only (click)="close()" style="color: black;background-color: transparent;border: transparent;background: transparent;"><ion-icon name="close" (click)="close()" style="color: black;"></ion-icon></button>
+   </ion-buttons>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <ion-card style="border-radius: 10px;background-color: rgba(0,0,0,0.5);">
+      <!--<p style="font-size: 1em;">Employee id: </p>-->
+  <ion-item>
+        <ion-input type="number" disabled value={{x}} style="color: black;text-align: center;"></ion-input>
+  </ion-item>
+  <br>
+    <ion-item>
+        <ion-label style="color: black;">Complaining against department</ion-label>
+        <ion-select [(ngModel)]="complaints.dept" submitText="Okay" cancelText="cancel">
+          <ion-option value="I.T">I.T</ion-option>
+          <ion-option value="H.R">H.R</ion-option>
+          <ion-option value="Finance">Finance</ion-option>
+          <ion-option value="Electrical">Electrical</ion-option>
+          <ion-option value="Satellite">Satellite</ion-option>
+          </ion-select>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-textarea [disabled]="!complaints.dept" style="color: black;border-bottom-color: rgba(0,0,0,0.5);" [(ngModel)]="complaints.problem" placeholder="Description of problem"></ion-textarea>
+      </ion-item>
+      <br>
+      <ion-item>
+          <ion-label style="color: black;">Contact No.</ion-label>
+          <ion-input type="number" [disabled]="!complaints.problem" [(ngModel)]="complaints.contact" style="border-bottom-color: rgba(0,0,0,0.5);" ></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+          <ion-label style="color: black;">Date</ion-label>
+          <ion-datetime [disabled]="!complaints.contact"  [(ngModel)]="complaints.date" style="border-bottom-color: rgba(0,0,0,0.5);"></ion-datetime>
+      </ion-item>
+      <br>
+<button ion-button (click)="submit(complaints)" [disabled]="!complaints.date" style="margin-left:38%;color:black;background-color: coral;border-radius: 5%;">submit</button>
+
+</ion-card>
+<br>
+<h4 style="color:red;font-family:serif;text-align: center;">All Fields are compulsory</h4>
+</ion-content>

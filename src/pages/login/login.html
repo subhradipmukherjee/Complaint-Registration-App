@@ -1,0 +1,85 @@
+ <!--<ion-header>
+ <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+  </ion-navbar>
+</ion-header>-->
+
+<ion-content  >
+    <div class="diva">
+      <ion-icon (click)="back()" name="backspace" style="color:black;height:17%;width:17%;"></ion-icon>
+        <img src="assets/gallery/lgn.svg" style="opacity:0.7;margin-top:4%;margin-left:56%;height:65%;width:55%;">
+       </div>
+       <h4 style="margin-top:-20%;margin-left: 5%">Login</h4>
+       <p style="margin-left:5%;font-size: 1.1em;">Enter Username and Password</p>
+       <div class="divb">
+          <br>
+        <ion-card no-lines>
+          <ion-card-content>
+
+
+            <ion-list>
+              <br>
+          <ion-item>
+             <ion-label floating style="color: black;"><ion-icon name="person" item-start floating ></ion-icon> Username</ion-label>
+             <ion-input type="text" [(ngModel)]="user.username" ></ion-input>
+           </ion-item>
+
+           <ion-item>
+             <ion-label floating style="color: black;"><ion-icon name="unlock" item-start floating></ion-icon> Password</ion-label>
+             <ion-input type="password" [(ngModel)]="user.password" [disabled]="!user.username"></ion-input>
+           </ion-item>
+          </ion-list>
+       <button  ion-button [disabled]="!user.username"  (click)="login(user)" style="background-color:#42d24d;margin-top:15%;margin-left:23%;width:50%;border-radius:5%;">Login</button>
+        <!-- <p (click)="signup()" style="text-align: center;margin-top:2%;margin-left:0%;color:black;">Signup?</p>-->
+        </ion-card-content>
+        </ion-card>
+        </div>
+  <!--<div style="background-color:white;height:100%;">
+
+        <div style="background-color:#ddddddb3;height:25%;">
+
+          </div>
+          <img src="../assets/image/login4.svg" style="opacity:0.7;;margin-left:56%;height:40%;width:40%;">
+          <h4 style="margin-left: 5%">Login</h4>
+          <p style="margin-left:5%;font-size: 1.1em;">Enter Username and Password</p>
+          <ion-list>
+             <ion-item>
+                <ion-input type="text" placeholder="Username"></ion-input>
+              </ion-item>
+               <br>
+               <br>
+               <br>
+              <ion-item>
+                <ion-input type="password" placeholder="Password"></ion-input>
+              </ion-item>
+
+            </ion-list>
+            <button ion-button  (click)="login(user)" style="background-color:#42d24d;margin-left:23%;width:50%;border-radius:5%;">Login</button>
+
+    </div> -->
+
+    <!--<div class="diva">
+     <img src="../assets/image/login4.svg" style="opacity:0.7;margin-top:9%;margin-left:56%;height:75%;width:55%;">
+    </div>
+    <h4 style="margin-top:-20%;margin-left: 5%">Login</h4>
+    <p style="margin-left:5%;font-size: 1.1em;">Enter Username and Password</p>
+    <div class="divb">
+     <ion-list>
+      <ion-item>
+          <ion-label floating><ion-icon name="person" item-start floating ></ion-icon> Username</ion-label>
+          <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating><ion-icon name="create" item-start floating></ion-icon> Password</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+        </ion-item>
+       </ion-list>
+       <button ion-button  (click)="login(user)" style="background-color:#42d24d;margin-top:15%;margin-left:23%;width:50%;border-radius:5%;">Login</button>
+      <p (click)="signup()" style="text-align: center;margin-top:2%;margin-left:0%;color:black;">Signup?</p>
+    </div>-->
+
+</ion-content>

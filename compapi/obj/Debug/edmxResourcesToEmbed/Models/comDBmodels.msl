@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="complaint_regModel1StoreContainer" CdmEntityContainer="comDBmodel">
+    <EntitySetMapping Name="compdetails">
+      <EntityTypeMapping TypeName="complaint_regModel1.compdetail">
+        <MappingFragment StoreEntitySet="compdetail">
+          <ScalarProperty Name="compid" ColumnName="compid" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="dept" ColumnName="dept" />
+          <ScalarProperty Name="problem" ColumnName="problem" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="get_comp" FunctionName="complaint_regModel1.Store.get_comp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="complaint_regModel1.get_comp_Result">
+          <ScalarProperty Name="compid" ColumnName="compid" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="dept" ColumnName="dept" />
+          <ScalarProperty Name="problem" ColumnName="problem" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="insert" FunctionName="complaint_regModel1.Store.insert" />
+    <EntitySetMapping Name="emps">
+      <EntityTypeMapping TypeName="complaint_regModel1.emp">
+        <MappingFragment StoreEntitySet="emp">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sno" ColumnName="sno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userdetails">
+      <EntityTypeMapping TypeName="complaint_regModel1.userdetail">
+        <MappingFragment StoreEntitySet="userdetail">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PROC_EMP_List" FunctionName="complaint_regModel1.Store.PROC_EMP_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="complaint_regModel1.PROC_EMP_List_Result">
+          <ScalarProperty Name="sno" ColumnName="sno" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

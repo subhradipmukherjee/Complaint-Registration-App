@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="complaint_regModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="compdetail">
+          <Key>
+            <PropertyRef Name="compid" />
+          </Key>
+          <Property Name="compid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empid" Type="int" Nullable="false" />
+          <Property Name="dept" Type="varchar" MaxLength="25" />
+          <Property Name="problem" Type="varchar" MaxLength="220" />
+          <Property Name="status" Type="varchar" MaxLength="15" />
+          <Property Name="contact" Type="bigint" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="emp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="contact" Type="bigint" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="get_comp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empid" Type="int" Mode="In" />
+          <Parameter Name="dept" Type="varchar" Mode="In" />
+          <Parameter Name="problem" Type="varchar" Mode="In" />
+          <Parameter Name="status" Type="varchar" Mode="In" />
+          <Parameter Name="contact" Type="bigint" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="PROC_EMP_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EMPNAme" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="complaint_regModel2StoreContainer">
+          <EntitySet Name="compdetail" EntityType="Self.compdetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emp" EntityType="Self.emp" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="complaint_regModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="compdetail">
+          <Key>
+            <PropertyRef Name="compid" />
+          </Key>
+          <Property Name="compid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empid" Type="Int32" Nullable="false" />
+          <Property Name="dept" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="problem" Type="String" MaxLength="220" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="Int64" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="emp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="Int64" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="comp_model" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="compdetails" EntityType="Self.compdetail" />
+          <EntitySet Name="emps" EntityType="Self.emp" />
+          <FunctionImport Name="get_comp" ReturnType="Collection(complaint_regModel2.get_comp_Result)">
+            <Parameter Name="empid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insert">
+            <Parameter Name="empid" Mode="In" Type="Int32" />
+            <Parameter Name="dept" Mode="In" Type="String" />
+            <Parameter Name="problem" Mode="In" Type="String" />
+            <Parameter Name="status" Mode="In" Type="String" />
+            <Parameter Name="contact" Mode="In" Type="Int64" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_EMP_List" ReturnType="Collection(complaint_regModel2.PROC_EMP_List_Result)">
+            <Parameter Name="EMPNAme" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="get_comp_Result">
+          <Property Type="Int32" Name="compid" Nullable="false" />
+          <Property Type="Int32" Name="empid" Nullable="false" />
+          <Property Type="String" Name="dept" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="problem" Nullable="true" MaxLength="220" />
+          <Property Type="String" Name="status" Nullable="true" MaxLength="15" />
+          <Property Type="Int64" Name="contact" Nullable="true" />
+          <Property Type="DateTime" Name="date" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="PROC_EMP_List_Result">
+          <Property Type="Int32" Name="sno" Nullable="false" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+          <Property Type="Int64" Name="contact" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="complaint_regModel2StoreContainer" CdmEntityContainer="comp_model">
+          <EntitySetMapping Name="compdetails">
+            <EntityTypeMapping TypeName="complaint_regModel2.compdetail">
+              <MappingFragment StoreEntitySet="compdetail">
+                <ScalarProperty Name="compid" ColumnName="compid" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="dept" ColumnName="dept" />
+                <ScalarProperty Name="problem" ColumnName="problem" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emps">
+            <EntityTypeMapping TypeName="complaint_regModel2.emp">
+              <MappingFragment StoreEntitySet="emp">
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="get_comp" FunctionName="complaint_regModel2.Store.get_comp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="complaint_regModel2.get_comp_Result">
+                <ScalarProperty Name="compid" ColumnName="compid" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="dept" ColumnName="dept" />
+                <ScalarProperty Name="problem" ColumnName="problem" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="insert" FunctionName="complaint_regModel2.Store.insert" />
+          <FunctionImportMapping FunctionImportName="PROC_EMP_List" FunctionName="complaint_regModel2.Store.PROC_EMP_List">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="complaint_regModel2.PROC_EMP_List_Result">
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

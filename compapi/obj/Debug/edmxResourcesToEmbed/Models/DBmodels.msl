@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="complaint_regModelStoreContainer" CdmEntityContainer="DBmodel">
+    <EntitySetMapping Name="emps">
+      <EntityTypeMapping TypeName="complaint_regModel.emp">
+        <MappingFragment StoreEntitySet="emp">
+          <ScalarProperty Name="sno" ColumnName="sno" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PROC_EMP_List" FunctionName="complaint_regModel.Store.PROC_EMP_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="complaint_regModel.PROC_EMP_List_Result">
+          <ScalarProperty Name="sno" ColumnName="sno" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

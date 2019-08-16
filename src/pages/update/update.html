@@ -1,0 +1,48 @@
+<!--
+  Generated template for the UpdatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>update</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <!--<ion-item>
+            <ion-label floating><ion-icon name="person" ion-start floating ></ion-icon> EmployeeId</ion-label>
+            <ion-input type="number" [(ngModel)]="x.id" placeholder={{emp.id}}></ion-input>
+          </ion-item>-->
+         <br>
+        <ion-item>
+            <ion-label><ion-icon name="person" item-start ></ion-icon></ion-label>
+            <ion-input type="text" [(ngModel)]="x.name" value="{{emp.name}}"></ion-input>
+          </ion-item>
+          <br>
+          <br>
+          <ion-item>
+            <ion-label><ion-icon name="create" item-start></ion-icon></ion-label>
+            <ion-input type="number" [(ngModel)]="x.contact" value={{emp.contact}}></ion-input>
+          </ion-item>
+          <br>
+          <br>
+          <ion-item>
+            <ion-label><ion-icon name="person" item-start></ion-icon></ion-label>
+            <ion-input type="text" [(ngModel)]="x.username" value={{emp.username}}></ion-input>
+          </ion-item>
+          <br>
+          <br>
+          <ion-item>
+            <ion-label><ion-icon name="unlock" item-start ></ion-icon></ion-label>
+            <ion-input type="password" [(ngModel)]="x.password" value="{{emp.password}}"></ion-input>
+          </ion-item>
+    </ion-list>
+    <br>
+    <button ion-button (click)="update(x)" style="background-color:#42d24d;margin-top:15%;margin-left:23%;width:50%;border-radius:5%;" >update</button>
+</ion-content>

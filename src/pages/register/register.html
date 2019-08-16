@@ -1,0 +1,46 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Signup</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <br>
+  <h3 style="color:red;font-family:serif;">All Fields are compulsory except for contact</h3>
+
+    <ion-list>
+        <ion-item>
+            <ion-label floating><ion-icon name="person" ion-start floating ></ion-icon> EmployeeId</ion-label>
+            <ion-input type="number" [(ngModel)]="user.id"></ion-input>
+          </ion-item>
+
+        <ion-item>
+            <ion-label floating><ion-icon name="person" ion-start floating ></ion-icon> Name</ion-label>
+            <ion-input type="text" [(ngModel)]="user.name" [disabled]="!user.id"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating><ion-icon name="create" ion-start floating></ion-icon> Contact No.</ion-label>
+            <ion-input type="number" [(ngModel)]="user.contact"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating><ion-icon name="person" ion-start floating ></ion-icon> Username</ion-label>
+            <ion-input type="text" [(ngModel)]="user.username" [disabled]="!user.name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating><ion-icon name="lock" ion-start floating></ion-icon> Set Password</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password" [disabled]="!user.username"></ion-input>
+          </ion-item>
+    </ion-list>
+    <button [disabled]="!user.password" ion-button style="background-color:#42d24d;margin-top:15%;margin-left:23%;width:50%;border-radius:5%;" (click)="register(user)">Register</button>
+</ion-content>
